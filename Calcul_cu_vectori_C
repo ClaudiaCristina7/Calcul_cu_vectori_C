@@ -1,0 +1,57 @@
+//Realizați schema logică (puteți inițial să descrieți printr-un text cu indentări) care să reflecte modul în care gândiți rezolvarea următoarei probleme:
+Pentru un vector cu k elemente numere întregi citite de la tastatură, calculați suma elementelor vectorului care au valori mai mari decât 
+valoarea minimă a elementelor din tablou pentru opțiunea 1 introdusă de la tastatură, iar pentru opțiunea 2, calculați suma elementelor vectorului
+care au valori mai mici decât valoarea maximă a elementelor din tablou.
+
+START
+
+// 1. Citeste numarul de elemente K
+Scrie "Introduceti numarul de elemente K:"
+Citeste K
+
+// 2. Declara si citeste vectorul
+Declara VECTOR[K]
+Pentru i = 0 până la K-1 fă:
+    Scrie "Introduceti elementul ", i+1, ":"
+    Citeste VECTOR[i]
+
+// 3. Citeste optiunea utilizatorului
+Scrie "Introduceti optiunea (1 pentru suma elementelor > min, 2 pentru suma elementelor < max):"
+Citeste OPTIUNE
+
+// 4. Determina valoarea minima și maxima din vector
+min_val ← VECTOR[0]
+max_val ← VECTOR[0]
+
+Pentru i = 1 până la K-1 fă:
+    Dacă VECTOR[i] < min_val atunci:
+        min_val ← VECTOR[i]
+    Sfarsit_Daca
+    Daca VECTOR[i] > max_val atunci:
+        max_val ← VECTOR[i]
+    Sfarsit_Daca
+Sfarsit_Pentru
+
+// 5. Executa operatia corespunzatoare optiunii
+suma ← 0
+
+Daca OPTIUNE = 1 atunci:
+    Pentru i = 0 până la K-1 fă:
+        Dacă VECTOR[i] > min_val atunci:
+            suma ← suma + VECTOR[i]
+        Sfarsit_Daca
+    Sfarsit_Pentru
+Sfarsit_Daca
+
+Dacă OPTIUNE = 2 atunci:
+    Pentru i = 0 până la K-1 fă:
+        Dacă VECTOR[i] < max_val atunci:
+            suma ← suma + VECTOR[i]
+        Sfarsit_Daca
+    Sfarsit_Pentru
+Sfarsit_Daca
+
+// 6. Afiseaza rezultatul
+Scrie "Suma calculata este:", suma
+
+STOP
